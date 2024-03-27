@@ -9,7 +9,7 @@ function Navbar() {
                 <div className='flex flex-row gap-2 items-center'>
                     <FontAwesomeIcon icon={faBars} className='hover:rounded-full hover:bg-slate-900 text-xl p-3 text-white' />
                     <img src='' width={25} height={20} />
-                    <p className='text-xl font-bold font-sans text-white hidden sm:block'>YOUTUBE <sup className='text-sm font-normal'>IN</sup></p>
+                    <p className='text-xl font-bold font-sans text-white hidden sm:block'>Code Bloggers<sup className='text-sm font-normal pl-1'>In</sup></p>
                 </div>
                 <div className='md:flex md:gap-4 md:items-center hidden'>
                     <div className='h-full flex items-center justify-center relative '>
