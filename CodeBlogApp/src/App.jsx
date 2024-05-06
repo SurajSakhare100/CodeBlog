@@ -1,11 +1,11 @@
-import Blog from "./Component/Blog";
-import Navbar from "./Component/Navbar";
+import { Outlet } from "react-router-dom";
+import Navbar from "/src/Component/Navbar/Navbar";
 
 function App() {
   return (
    <>
+   <Outlet/>
    <Navbar/>
-   <Blog/>
    </>
   )
 }
