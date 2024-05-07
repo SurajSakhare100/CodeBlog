@@ -90,7 +90,8 @@ function Footer() {
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="text-center">
-            <span class="block text-sm text-center text-gray-500 dark:text-gray-400">©Copyright © 2024 CodeWithSuraj.vercel.app
+            <span class="block text-sm text-center text-gray-500 dark:text-white">©Copyright © 2024 codewithsuraj.vercel.app
+
             </span>
             <ul class="flex justify-center mt-5 space-x-5">
                 <li>

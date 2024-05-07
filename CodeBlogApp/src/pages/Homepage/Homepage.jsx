@@ -16,9 +16,6 @@ function Homepage() {
                     <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
                     <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
                        <Blog/>
-                       <Blog/>
-                       <Blog/>
-                       <Blog/>
                     </div>
                 </div>
             </aside>
