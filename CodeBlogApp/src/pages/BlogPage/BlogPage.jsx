@@ -1,13 +1,70 @@
 import React from 'react'
-import Comment from '../../Component/Comment/Comment'
+import Comment from '../../Component/Comment/Comment.jsx'
 import { Helmet } from 'react-helmet';
+import Code from '../../Component/BlogComponent/Code/Code.jsx';
+import Title from '../../Component/BlogComponent/Title/Title.jsx';
+import Paragraph from '../../Component/BlogComponent/Paragraph/Paragraph.jsx';
+import Header from '../../Component/BlogComponent/Header/Header.jsx';
 
 function BlogPage() {
     const description = "Explore the world of React development with our in-depth guide. Learn about React's core concepts, best practices, and advanced techniques for building modern web applications.";
-    const title="React Development Guide";
+    const title = "React Development Guide";
     const ogUrl = "https://codeblogger.com/blog/react-development-guide";
     const ogImageUrl = "CodeBlogApp/src/assets/react.svg";
-
+    const blog = {
+        title: `How to Start a React App: A Beginner's Guide`,
+        headers: {
+            header1: `Step 1: Install Node.js`,
+            header2: `Step 2: Create a New React App`,
+            header3: `Step 3: Navigate to the App Directory`,
+            header4: `Step 4: Start the Development Server`,
+            header5: `Step 5: Modify Your App`,
+            header6: `Step 6: View Your Changes`,
+            header7: `Step 7: Build Your App for Production`,
+            header8: ``,
+        },
+        paras: {
+            para1: `Welcome to our beginner's guide on starting a React app! In this tutorial, 
+            we'll walk you through the steps to create a basic React application from scratch using Create React App.`,
+            para2: `Before we begin, ensure you have Node.js installed on your computer. You can download and install it from the official website: Node.js.`,
+            para3: `Open your terminal or command prompt and run the following command to create a new React app using Create React App:`,
+            para4: `Replace "my-react-app" with the desired name for your app.`,
+            para5: `Once the app is created, navigate to the project directory using the following command:`,
+            para6:`Now, start the development server by running:`,
+            para7:`This command will launch your default web browser and display your React app.`,
+            para8:`Open the project directory in your preferred code editor. You'll find the basic structure of a React app with files like src/index.js and src/App.js. Let's modify the App.js file to customize our app:`,
+            para9:`Feel free to edit the content inside the App component to suit your needs.`,
+            para10:`Save your changes, and the React app will automatically update in the browser with the modifications you made.`,
+            para11:`When you're ready to deploy your app, you can build it for production using the following command:`,
+            para12:`This command generates a build folder containing optimized production-ready assets.`,
+        },
+        img: {
+            img1: ``,
+            img2: ``,
+            img3: ``,
+            img4: ``,
+            img5: ``,
+        },
+        code:{
+            code1:`npx create-react-app my-react-app`,
+            code2:`cd my-react-app`,
+            code3:`npm start`,
+            code4:
+            `import React from 'react';
+            function App() {
+              return (
+                <div className="App">
+                  <h1>Hello, React!</h1>
+                  <p>Welcome to my React app.</p>
+                </div>
+              );
+            }
+            export default App;
+            `,
+            code5:`npm run build`,
+            code6:``,
+        }
+    }
     return (
         <div>
             <Helmet>
@@ -19,44 +76,40 @@ function BlogPage() {
                 <meta property="og:image" content={ogImageUrl} />
                 <meta property="og:url" content={ogUrl} />
             </Helmet>
-            <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
-                <div className="flex justify-between px-4 mx-auto max-w-screen-xl ">
-                    <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-                        <header className="mb-4 lg:mb-6 not-format">
-                            <address className="flex items-center mb-6 not-italic">
-                                <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                                    <img className="mr-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos" />
-                                    <div>
-                                        <a href="#" rel="author" className="text-xl font-bold text-gray-900 dark:text-white">Jese Leos</a>
-                                        <p className="text-base text-gray-500 dark:text-gray-400">Graphic Designer, educator & CEO Flowbite</p>
-                                        <p className="text-base text-gray-500 dark:text-gray-400"><time pubdate="true" dateTime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time></p>
-                                    </div>
-                                </div>
-                            </address>
-                            <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Best practices for successful prototypes</h1>
-                        </header>
-                        <div className='text-black dark:text-white py-4'>
-                            <p className="lead">Flowbite is an open-source library of UI components built with the utility-first
-                                classNamees from Tailwind CSS. It also includes interactive elements such as dropdowns, modals,
-                                datepickers.</p>
-                            <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
-                                you can think things through before committing to an actual design project.</p>
-                            <p>But then I found a <a href="https://flowbite.com">component library based on Tailwind CSS called
-                                Flowbite</a>. It comes with the most commonly used UI components, such as buttons, navigation
-                                bars, cards, form elements, and more which are conveniently built with the utility classNamees from
-                                Tailwind CSS.</p>
-                            <figure><img src="https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png" alt="" />
-                                <figcaption>Digital art by Anonymous</figcaption>
-                            </figure>
-                            <h2>Getting started with Flowbite</h2>
-                            <p>First of all you need to understand how Flowbite works. This library is not another framework.
-                                Rather, it is a set of components based on Tailwind CSS that you can just copy-paste from the
-                                documentation.</p>
-                        </div>
+            <main className=" pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+                <div className="pt-12 flex justify-between px-4  m-auto w-1/2 max-w-screen-xl flex-col gap-4">
+                    <Title title={blog.title} />
+                    <p className='text-white text-md'>Suraj Sakhare | 2 hrs ago | 3 min read </p>
+                    <Paragraph para={blog.paras.para1} />
+                    <Header header={blog.headers.header1} />
+                    <Paragraph para={blog.paras.para2} />
+                    <Header header={blog.headers.header2} />
+                    <Paragraph para={blog.paras.para3} />
+                    <Code code={blog.code.code1}/>
+                    <Paragraph para={blog.paras.para4} />
+                    <Header header={blog.headers.header3} />
+                    <Paragraph para={blog.paras.para4} />
+                    <Code code={blog.code.code2}/>
+                    <Paragraph para={blog.paras.para5}/>
+                    <Header header={blog.headers.header4} />
+                    <Paragraph para={blog.paras.para6} />
+                    <Code code={blog.code.code3}/>
+                    <Paragraph para={blog.paras.para7}/>
+                    <Header header={blog.headers.header5} />
+                    <Paragraph para={blog.paras.para8} />
+                    <Code code={blog.code.code4}/>
+                    <Paragraph para={blog.paras.para9}/>
+                    <Header header={blog.headers.header6} />
+                    <Paragraph para={blog.paras.para10} />
+                    <Header header={blog.headers.header7} />
+                    <Paragraph para={blog.paras.para11} />
+                    <Code code={blog.code.code5}/>
+                    <Paragraph para={blog.paras.para12}/>
+
+                    
 
 
-                        <Comment />
-                    </article>
+                <Comment/>
                 </div>
             </main>
         </div>

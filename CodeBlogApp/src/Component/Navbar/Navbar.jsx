@@ -8,7 +8,7 @@ function Navbar() {
             <div className='flex flex-row items-center justify-between bg-transparent py-2 fixed w-full h-[8vh] top-0 px-12'>
                 <div className='flex flex-row gap-2 items-center'>
                     <FontAwesomeIcon icon={faBars} className='hover:rounded-full hover:bg-slate-900 text-xl p-3 text-white' />
-                    <em className='text-xl font-bold font-sans text-white hidden sm:block'>Travel the world</em>
+                    <em className='text-xl font-bold font-sans text-white hidden sm:block'>Code With Suraj</em>
                 </div>
                 <div className='md:flex md:gap-4 md:items-center hidden'>
                     <div className='h-full flex items-center justify-center relative '>
