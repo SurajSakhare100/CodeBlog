@@ -10,7 +10,7 @@ function Blog() {
                 <a href="#" className='text-2xl'>Our first office</a>
             </h2>
             <p class="mb-4 text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone many changes! After months of preparation.</p>
-            <a href="/blog" class="inline-flex items-center font-medium  text-white dark:text-primary-500 ">
+            <a href="/blog/react-development-guide" class="inline-flex items-center font-medium  text-white dark:text-primary-500 ">
                 Read in 2 minutes
             </a>
         </article>
