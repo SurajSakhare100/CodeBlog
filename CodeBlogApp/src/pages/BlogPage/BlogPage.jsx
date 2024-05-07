@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Comment from '../../Component/Comment/Comment.jsx'
 import { Helmet } from 'react-helmet';
 import Code from '../../Component/BlogComponent/Code/Code.jsx';
@@ -6,13 +6,12 @@ import Title from '../../Component/BlogComponent/Title/Title.jsx';
 import Paragraph from '../../Component/BlogComponent/Paragraph/Paragraph.jsx';
 import Header from '../../Component/BlogComponent/Header/Header.jsx';
 import blog from '../../blog/writeblog.js';
-
 function BlogPage() {
     const description = "Explore the world of React development with our in-depth guide. Learn about React's core concepts, best practices, and advanced techniques for building modern web applications.";
     const title = "React Development Guide";
     const ogUrl = "https://codeblogger.com/blog/react-development-guide";
     const ogImageUrl = "CodeBlogApp/src/assets/react.svg";
-  
+   
     return (
         <div>
             <Helmet>
@@ -59,6 +58,7 @@ function BlogPage() {
 
                 <Comment/>
                 </div>
+            
             </main>
         </div>
     )

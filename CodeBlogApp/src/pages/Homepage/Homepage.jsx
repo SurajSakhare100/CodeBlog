@@ -2,7 +2,7 @@ import React from 'react'
 import heroimage from '/src/assets/heroimage.jpg'
 import Footer from '/src/Component/Footer/Footer'
 import Blog from '/src/Component/Blog/Blog'
-
+import reactcourse from '../../assets/react.png';
 function Homepage() {
     return (
         <div className='w-full h-full'>
@@ -12,10 +12,10 @@ function Homepage() {
             />
 
             <aside aria-label="Related articles" className="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
-                <div class="px-4 mx-auto max-w-screen-xl">
+                <div class="mx-auto px-20">
                     <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
                     <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-                       <Blog/>
+                       <Blog imgurl={reactcourse}/>
                     </div>
                 </div>
             </aside>
