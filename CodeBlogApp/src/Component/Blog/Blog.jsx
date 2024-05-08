@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Blog({imgurl}) {
     return (
@@ -10,9 +11,10 @@ function Blog({imgurl}) {
             </h2>
             <p className="mb-4 text-gray-500 dark:text-gray-400">In this tutorial, 
         we'll walk you through the steps to create a basic React application from scratch using Create React App</p>
-            <a href="/blog/react" className="inline-flex items-center font-medium  text-white dark:text-primary-500 ">
+            <Link to={"/blog/react"} className="inline-flex items-center font-medium  text-white dark:text-primary-500 ">
                 Read in 2 minutes
-            </a>
+            
+            </Link>
         </article>
     )
 }

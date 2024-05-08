@@ -29,7 +29,7 @@ function Homepage() {
                         <p className='text-9xl text-white font-bold'>Build...</p>
                     </div>
                 </div>
-                <aside aria-label="Related articles" className="my-10">
+                <aside aria-label="Related articles" className="mt-10 py-10">
                     <div className="mx-auto">
                         <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
                         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
