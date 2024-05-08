@@ -24,9 +24,9 @@ function Homepage() {
                         <img src={space} alt="" width={320} className='' />
                     </animated.div>
                     <div className='absolute left-0 bottom-60 translate-y-12'>
-                        <h1 className='w-100 text-9xl text-white font-bold'>Code</h1>
-                        <h1 className='text-9xl text-white font-bold'>Learn &</h1>
-                        <h1 className='text-9xl text-white font-bold'>Build...</h1>
+                        <p className='w-100 text-9xl text-white font-bold'>Code</p>
+                        <p className='text-9xl text-white font-bold'>Learn &</p>
+                        <p className='text-9xl text-white font-bold'>Build...</p>
                     </div>
                 </div>
                 <aside aria-label="Related articles" className="my-10">
