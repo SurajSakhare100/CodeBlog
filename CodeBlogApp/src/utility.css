@@ -1,0 +1,16 @@
+/* styles.css */
+
+.function {
+    color: #fbbf24; /* Yellow color for functions */
+  }
+  
+  .string {
+    color: #34d399; /* Green color for strings */
+  }
+  
+  .variable {
+    color: #10b981; /* Blue color for variables */
+  }
+  
+  /* Add more classes for other types of code elements if needed */
+  

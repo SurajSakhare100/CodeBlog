@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faMicrophone, faSearch } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 function Navbar() {
     return (
         <>
-            <div className='flex flex-row items-center justify-between bg-transparent py-2 fixed w-full h-[8vh] top-0 px-12'>
+            <div className='flex flex-row items-center justify-between shadow-sm  py-2 fixed w-full h-[8vh] bg-transparent top-0 px-12'>
                 <div className='flex flex-row gap-2 items-center'>
                     <FontAwesomeIcon icon={faBars} className='hover:rounded-full hover:bg-slate-900 text-xl p-3 text-white' />
                     <em className='text-xl font-bold font-sans text-white hidden sm:block'>Code With Suraj</em>
@@ -26,9 +26,13 @@ function Navbar() {
                 </div>
                 <div>
                     <ul className='flex gap-8 text-white text-md items-center'>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Blog</li>
+                        <NavLink to={'/'} isActive={(match, location) => {
+                            // Only consider the link active if it's an exact match
+                            if (!match) return false;
+                            return match.isExact;
+                        }} >Home</NavLink>
+                        <NavLink to={'/about'}>About</NavLink>
+                        <NavLink to={'/blog'}>Blog</NavLink>
                     </ul>
                 </div>
             </div>
