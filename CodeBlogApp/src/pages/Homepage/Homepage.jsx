@@ -1,5 +1,4 @@
 import React from 'react'
-import heroimage from '/src/assets/heroimage.jpg'
 import Footer from '/src/Component/Footer/Footer'
 import Blog from '/src/Component/Blog/Blog'
 import reactcourse from '../../assets/react.png';
