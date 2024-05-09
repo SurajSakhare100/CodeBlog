@@ -13,7 +13,6 @@ dist-ssr
 *.local
 
 # Ignore all txt files
-*.txt
 
 # Editor directories and files
 .vscode/*
@@ -26,3 +25,4 @@ dist-ssr
 *.sln
 *.sw?
 .env
+*.txt
