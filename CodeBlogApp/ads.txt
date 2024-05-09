@@ -1,1 +1,3 @@
 google.com, pub-7623182087547549, DIRECT, f08c47fec0942fa0
+
+//this is ads.txt file
