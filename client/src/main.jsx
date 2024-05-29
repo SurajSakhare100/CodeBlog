@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
-import { RouterProvider, Router, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './pages/Layout.jsx'
 import Login from './pages/Login.jsx'
+import About from './pages/About.jsx'
+import Home from './pages/Home.jsx'
 
 const router = createBrowserRouter([
   {
@@ -12,8 +13,16 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        path: '/',
+        element: <Home />,
+      },
+      {
         path: '/login',
         element: <Login />,
+      },
+      {
+        path: '/about',
+        element: <About />,
       },
     ]
   }
