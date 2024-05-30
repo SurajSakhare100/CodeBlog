@@ -1,41 +1,35 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Signup() {
+  const [username,setUsername]=useState('');
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
-  const [redirect,setredirct]=useState(false);
   function login(e){
     e.preventDefault();
-    fetch('/api/login',{
+    fetch('/api/signup',{
       method:'POST',
-      body:JSON.stringify({email,password}),
-      headers:{'Content-Type':'application/json'},
-      credentials:'include'
+      body:JSON.stringify({username,email,password}),
+      headers:{'Content-Type':'application/json'}
     }).then((res)=>{
-      if(res.ok){
-        setredirct(true)
-      }
-      else{
-        alert('invalid credentials')
-        setredirct(false)
-      }
-
+      console.log(res)
     }).catch((e)=>{
       console.log(e.message)
     })
-
-  }
-
-  if(redirect){
-    return <Navigate to={'/'}/>
   }
   return (
     <div className='mt-10'>
-      <h1 className='text-center text-4xl font-semibold'>Login</h1>
+      <h1 className='text-center text-4xl font-semibold'>Sign Up</h1>
       <form 
+      
         className='w-1/2 m-auto'
         onSubmit={login}>
+        <label htmlFor="username">username</label>
+        <input 
+        type="username"
+        value={username}
+        onChange={(e)=>{setUsername(e.currentTarget.value)}}
+        className='w-full py-2 border rounded-lg my-2'
+        />
         <label htmlFor="email">email</label>
         <input 
         type="email"

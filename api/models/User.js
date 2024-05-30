@@ -8,6 +8,14 @@ const userSchema=Schema({
         min:4,
         max:20,
     },
+    email:{
+        type:String,
+        required:true,
+        unique:true,
+        min:4,
+        max:20,
+        lowercase:true,
+    },
     password:{
         type:String,
         required:true,
@@ -17,5 +25,5 @@ const userSchema=Schema({
     },
 })
 
-const UserModel=model('user',userSchema);
+const UserModel=model('User',userSchema);
 module.exports=UserModel;
