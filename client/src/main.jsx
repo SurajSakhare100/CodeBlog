@@ -6,6 +6,7 @@ import Layout from './pages/Layout.jsx'
 import Login from './pages/Login.jsx'
 import About from './pages/About.jsx'
 import Home from './pages/Home.jsx'
+import Jokes from './pages/Jokes.jsx'
 
 const router = createBrowserRouter([
   {
