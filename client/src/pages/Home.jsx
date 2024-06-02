@@ -17,7 +17,7 @@ function Home() {
           <p className="text-lg text-base-content-secondary leading-relaxed max-w-md mx-auto">
             Grab a Template, Edit, and Launch Your Idea
             <br />
-            <p>Accelerate Your Idea with UITheme</p>
+            <span>Accelerate Your Idea with UITheme</span>
           </p>
           <Link
             className="bg-[#04ac74c9] hover:gap-3 transition-all w-[260px] hover:bg-[#04ac74] text-white text-sm font-bold py-3 rounded-lg shadow-md flex flex-wrap gap-2 justify-center"
