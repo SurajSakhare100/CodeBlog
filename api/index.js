@@ -9,7 +9,6 @@ const secret = "dfsafgewjoiaawoqeu";
 const app = express();
 const port = 3000;
 var salt = bcrypt.genSaltSync(10);
-// console.log(secret)
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -42,13 +41,14 @@ app.post("/api/login", async (req, res) => {
 app.post("/api/signup", async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    const userDoc = await User.create({
+    const userDoc=await User.create({
       username,
       email,
       password: bcrypt.hashSync(password, salt),
     });
+    res.json('sign up successfully')
   } catch (e) {
-    console.log(e.message);
+    res.json(e.errmsg);
   }
 });
 

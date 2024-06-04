@@ -4,17 +4,20 @@ export default function Signup() {
   const [username,setUsername]=useState('');
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
-  function login(e){
+  function signup(e){
     e.preventDefault();
     fetch('/api/signup',{
       method:'POST',
       body:JSON.stringify({username,email,password}),
       headers:{'Content-Type':'application/json'}
     }).then((res)=>{
-      console.log(res)
+      return res.json();
+    }).then((data)=>{
+        alert(data)
     }).catch((e)=>{
       console.log(e.message)
     })
+    navigator
   }
   return (
     <div className='mt-10'>
@@ -22,7 +25,7 @@ export default function Signup() {
       <form 
       
         className='w-1/2 m-auto'
-        onSubmit={login}>
+        onSubmit={signup}>
         <label htmlFor="username">username</label>
         <input 
         type="username"
