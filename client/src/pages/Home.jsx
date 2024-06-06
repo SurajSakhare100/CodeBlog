@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Post from '../components/Post'
+import axios from 'axios';
 
 function Home() {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [message, setMessage] = useState('');
+
+  const onFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const onFileUpload = async () => {
+    if (!selectedFile) {
+      setMessage('Please select a file');
+      return;
+    }
+
+    const formData = new FormData();
+    console.log(formData)
+    formData.append('file', selectedFile);
+    console.log(formData)
+    try {
+      const response = await axios.post('/api/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage('Error uploading file');
+    }
+  };
+
   return (
     <div>
       <div>
@@ -29,14 +59,18 @@ function Home() {
             </Link>
           </div>
           <div className='w-full h-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-12 my-8 md:my-16'>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
           </div>
+          <h1>Upload a File</h1>
+          <input type="file" onChange={onFileChange} />
+          <button onClick={onFileUpload} className='bg-green-400 px-4 py-2 rounded-lg'>Upload</button>
+          <p>{message}</p>
         </div>
       </div>
     </div>
