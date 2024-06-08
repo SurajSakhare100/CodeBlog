@@ -13,7 +13,11 @@ router.use(cookieParser());
 // register
 router.post("/signup", async (req, res) => {
   try {
+    // email
     const { username, email, password } = req.body;
+    if(!email) return res.status(404).send(`email can't be null`);
+    const useremail=await User.findOne({email});
+    if(useremail===email) return res.send('email exits');
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
     const userDoc = await User.create({ username, email, password: hashedPassword });

@@ -21,6 +21,7 @@ export default function Navbar() {
         });
         setUser(null)
     }
+    console.log(user)
     return (
         <nav className='h-16 w-full px-20 bg-black text-white'>
             <div className='flex w-full h-full justify-between items-center'>
