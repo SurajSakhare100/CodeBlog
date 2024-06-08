@@ -7,12 +7,13 @@ export default function Login() {
   const [redirect,setredirct]=useState(false);
   function login(e){
     e.preventDefault();
-    fetch('/api/login',{
+    fetch('/api/v1/auth/login',{
       method:'POST',
       body:JSON.stringify({email,password}),
       headers:{'Content-Type':'application/json'},
       credentials:'include'
     }).then((res)=>{
+      console.log(res)
       if(res.ok){
         setredirct(true)
       }
@@ -28,7 +29,7 @@ export default function Login() {
   }
 
   if(redirect){
-    return <Navigate to={'/'}/>
+    return <Navigate to={`/`}/>
   }
   return (
     <div className='mt-10'>

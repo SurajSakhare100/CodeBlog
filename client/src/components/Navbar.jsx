@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
     const [user, setUser] = useState(null);
     useEffect(() => {
-        fetch('/api/profile',{
+        fetch('/api/v1/user/665bff7161da160910e179d2',{
             credentials:'include'
           }).then((res)=>{
             return res.json()
@@ -15,9 +15,9 @@ export default function Navbar() {
           })
     }, [])
     function logout(){
-        fetch('api/logout',{
+        fetch('api/v1/auth/logout',{
             credentials:'include',
-            method:'post'
+            method:'get'
         });
         setUser(null)
     }
@@ -31,7 +31,7 @@ export default function Navbar() {
                     {user && 
                     <>
                         <li><Link to='/blog'>create new post..</Link></li>
-                        <li><Link to='/login'>logout</Link></li>
+                        <li><Link to='/login' onClick={logout}>logout</Link></li>
                     </>}
                     {
                         !user &&

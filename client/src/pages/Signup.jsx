@@ -6,10 +6,9 @@ export default function Signup() {
   const [password,setPassword]=useState('');
   function signup(e){
     e.preventDefault();
-    fetch('/api/signup',{
+    fetch('/api/v1/auth/signup',{
       method:'POST',
-      body:JSON.stringify({username,email,password}),
-      headers:{'Content-Type':'application/json'}
+      
     }).then((res)=>{
       return res.json();
     }).then((data)=>{
@@ -17,7 +16,6 @@ export default function Signup() {
     }).catch((e)=>{
       console.log(e.message)
     })
-    navigator
   }
   return (
     <div className='mt-10'>
