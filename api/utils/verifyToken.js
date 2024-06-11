@@ -1,10 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import express from "express";
-import bcrypt from "bcryptjs";
-import User from "../api/models/User.js";
 import jwt from "jsonwebtoken";
-import cookieParser from "cookie-parser";
 const secret = process.env.SECRET;
 const verifyToken = async (req, res, next) => {
   try {
