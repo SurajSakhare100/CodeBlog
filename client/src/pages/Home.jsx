@@ -1,75 +1,36 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Post from '../components/Post'
-import axios from 'axios';
+import { Editor } from "@tinymce/tinymce-react";
+import { useRef } from "react";
 
 function Home() {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [message, setMessage] = useState('');
-
-  const onFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const onFileUpload = async () => {
-    if (!selectedFile) {
-      setMessage('Please select a file');
-      return;
-    }
-
-    const formData = new FormData();
-    console.log(formData)
-    formData.append('file', selectedFile);
-    console.log(formData)
-    try {
-      const response = await axios.post('/api/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      setMessage(response.data.message);
-    } catch (error) {
-      setMessage('Error uploading file');
+  const editorRef = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
     }
   };
-
   return (
-    <div>
-      <div>
-        <div className="relative z-10 mx-auto  flex flex-col items-center justify-center gap-16 lg:gap-20 px-8 py-12 lg:py-24">
-          <div className="relative flex flex-col gap-10 lg:gap-12 items-center justify-center text-center">
-            <div className="space-y-2">
-              <h1 className="font-extrabold text-4xl lg:text-5xl tracking-tight leading-relaxed md:-mb-4 text-slate-800">
-                Coding & Blogging is fun
-                <br />
-                lean new stuff every week
-              </h1>
-            </div>
-            <p className="text-lg text-base-content-secondary leading-relaxed max-w-md mx-auto">
-              Grab a Template, Edit, and Launch Your Idea
-              <br />
-              <span>Accelerate Your Idea with UITheme</span>
-            </p>
-            <Link
-              className="bg-[#04ac74c9] hover:gap-3 transition-all w-[260px] hover:bg-[#04ac74] text-white text-sm font-bold py-3 rounded-lg shadow-md flex flex-wrap gap-2 justify-center"
-              to="/"
-            >
-              create new post
-              {/* <img src={logo} width={18} height={16} alt="" /> */}
-            </Link>
-          </div>
-          <div className='w-full h-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-12 my-8 md:my-16'>
-            <Post />
-            <Post />
-          </div>
-          <h1>Upload a File</h1>
-          <input type="file" onChange={onFileChange} />
-          <button onClick={onFileUpload} className='bg-green-400 px-4 py-2 rounded-lg'>Upload</button>
-          <p>{message}</p>
-        </div>
-      </div>
-    </div>
-  )
+    <>
+      <Editor
+        apiKey="ADD-YOUR-API-KEY-HERE"
+        onInit={(evt, editor) => (editorRef.current = editor)}
+        initialValue="<p>This is the initial content of the editor.</p>"
+        init={{
+          height: 500,
+          menubar: false,
+          plugins: [
+            "ai preview powerpaste casechange footnotes tinycomments searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed advtemplate codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker mergetags a11ychecker editimage help formatpainter permanentpen pageembed charmap quickbars linkchecker emoticons advtable export mentions typography markdown importword",
+          ],
+          toolbar:
+            "undo redo | importword | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table media pageembed | lineheight  outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print export | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck",
+          importword_service_url: "add.url.here",
+          templates: [],
+          content_style:
+            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+        }}
+      />
+      <button onClick={log}>Log editor content</button>
+    </>
+  );
 }
 
-export default Home
+export default Home;
